@@ -44,8 +44,10 @@ ssize_t ModeSwitcher::handleSwitchMessage(int fd, const void *buf,
 }
 
 void ModeSwitcher::handleSwitchToAccessoryMode(const Library &lib) {
-  // Next trail replace: 0x2D00 -> 0x4EE1
-  Gadget initialGadget(lib, 0x18D1, 0x2D00, rr("initial_state"));
+  // First trail: (0x18D1, 0x4EE1)
+  // 2nd trail: (0x18D1, 0x2D00)
+
+  Gadget initialGadget(lib, 0x18D1, 0x4EE1, rr("initial_state"));
   initialGadget.setStrings("TAG", "AAServer", sr("TAGAAS"));
 
   auto lun0path = (boost::filesystem::temp_directory_path() / rr("lun0"));
