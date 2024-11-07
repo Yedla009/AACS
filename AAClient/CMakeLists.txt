@@ -29,6 +29,7 @@ add_executable(AAClient main.cpp
     ${PROTO_SRCS}
     ${PROTO_HDRS}
     )
+add_backward(AAClient)
 target_link_libraries(AAClient Threads::Threads)
 target_link_libraries(AAClient PkgConfig::libusb)
 target_link_libraries(AAClient PkgConfig::gst)
